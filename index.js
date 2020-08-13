@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client({fetchAllMembers: true})
-
 const http = require('http');
 
 const port = 250;
 var count = 0;
+var token = "";
+var statusText = `Rawr!`;
 
 http.createServer((req, res) => {
 	let responseCode = 200;
@@ -22,19 +23,14 @@ http.createServer((req, res) => {
 })
 .listen(port);
 
-
-statusText = `Rawr!`;
-
-
 client.on("guildMemberAdd", member => {
 	count = count + 1;
 });
 
-
 client.on("ready", async () => {   
     console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`);  
-	client.user.setActivity(statusText);    
-	count = client.users.cache.size;
+    client.user.setActivity(statusText);    
+    count = client.users.cache.size;
 });
 
 client
@@ -45,4 +41,4 @@ client
     console.warn("Warning! disconnected!");
 });
 
-client.login("TOKEN HERE");
+client.login(token);

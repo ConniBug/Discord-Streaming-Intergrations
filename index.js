@@ -2,11 +2,15 @@ const http    	  = require('http');
 const Discord 	  = require("discord.js");
 const client  	  = new Discord.Client({fetchAllMembers: true})
 
+// Manuelly Defined Vars
 const port 	  = 250;
 var   count  	  = 0;
 var   token  	  = "";
 var   statusText  = `Rawr!`;
 
+//
+// HTTP Webserver
+//
 http.createServer((req, res) => {
 	let responseCode = 200;
 	let content 	 = '';
@@ -23,6 +27,9 @@ http.createServer((req, res) => {
 })
 .listen(port);
 
+// 
+// Discord.js
+//
 client.on("guildMemberAdd", member => {
 	count = count + 1;
 });

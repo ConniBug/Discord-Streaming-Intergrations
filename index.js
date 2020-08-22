@@ -5,7 +5,7 @@ const http 	  = require('http');
 const url  	  = require('url');
 const cron        = require("node-cron");
 
-const token = "";
+const token            = "";
 const portDiscordCount = 250;
 const portTimer        = 251;
 var count              = 0;

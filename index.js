@@ -5,6 +5,7 @@ const http 	  = require('http');
 const url  	  = require('url');
 const cron        = require("node-cron");
 
+var statusText         = `Rawr!`;
 const token            = "";
 const portDiscordCount = 250;
 const portTimer        = 251;
@@ -57,9 +58,6 @@ http.createServer((req, res) => {
     res.end();
 })
 .listen(portDiscordCount);
-
-
-statusText = `Rawr!`;
 
 client.on("ready", async () => {   
     console.log(`Bot has started, with ${client.users.cache.size} users, in ${client.channels.cache.size} channels of ${client.guilds.cache.size} guilds.`);  
